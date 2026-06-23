@@ -1,3 +1,5 @@
+cat > ~/Desktop/wallet-transaction-logger-and-anomaly-detector/README.md << 'OUTER'
+
 # Smart Wallet Transaction Logger with Real-Time Anomaly Detection (in progress)
 
 CS F213 OOP Project — Group 2  

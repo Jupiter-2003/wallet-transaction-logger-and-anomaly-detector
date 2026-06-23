@@ -1,9 +1,9 @@
 package com.walletlogger.dao;
 
-import com.walletlogger.exceptions.TransactionPersistenceException;
-
 import java.util.List;
 import java.util.Optional;
+
+import com.walletlogger.exceptions.TransactionPersistenceException;
 
 /**
  * Generic DAO interface parameterised on:

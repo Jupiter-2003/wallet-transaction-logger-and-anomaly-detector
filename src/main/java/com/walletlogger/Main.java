@@ -1,12 +1,12 @@
 package com.walletlogger;
 
+import java.util.List;
+
 import com.walletlogger.dao.AnomalyDAO;
 import com.walletlogger.dao.SchemaInitialiser;
 import com.walletlogger.dao.TransactionDAO;
 import com.walletlogger.model.Transaction;
 import com.walletlogger.util.CsvLoader;
-
-import java.util.List;
 
 /**
  * Entry point for Week 1 smoke test.

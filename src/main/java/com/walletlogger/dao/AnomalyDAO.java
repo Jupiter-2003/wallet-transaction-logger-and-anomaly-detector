@@ -1,13 +1,16 @@
 package com.walletlogger.dao;
 
-import com.walletlogger.exceptions.TransactionPersistenceException;
-import com.walletlogger.model.AnomalyAlert;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import com.walletlogger.exceptions.TransactionPersistenceException;
+import com.walletlogger.model.AnomalyAlert;
 
 /**
  * JDBC implementation of GenericDAO for AnomalyAlert objects.

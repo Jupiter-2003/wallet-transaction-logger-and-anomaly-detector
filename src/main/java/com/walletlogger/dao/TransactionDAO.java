@@ -1,13 +1,20 @@
 package com.walletlogger.dao;
 
-import com.walletlogger.exceptions.TransactionPersistenceException;
-import com.walletlogger.model.*;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import com.walletlogger.exceptions.TransactionPersistenceException;
+import com.walletlogger.model.CreditTransaction;
+import com.walletlogger.model.DebitTransaction;
+import com.walletlogger.model.RefundTransaction;
+import com.walletlogger.model.Transaction;
+import com.walletlogger.model.TransactionType;
 
 /**
  * JDBC implementation of GenericDAO for Transaction objects.
