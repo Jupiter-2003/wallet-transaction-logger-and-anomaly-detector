@@ -1,5 +1,3 @@
-cat > ~/Desktop/wallet-transaction-logger-and-anomaly-detector/README.md << 'OUTER'
-
 # Smart Wallet Transaction Logger with Real-Time Anomaly Detection (in progress)
 
 CS F213 OOP Project — Group 2  
@@ -15,17 +13,14 @@ Antariksha Deb (2023A7PS0004H) | Deep Mitra (2023B5AA0670H)
 
 ## Project Structure
 
-src/
-├── main/java/com/walletlogger/
-│ ├── model/ # Transaction, AnomalyAlert, UserProfile, enums
-│ ├── dao/ # GenericDAO, TransactionDAO, AnomalyDAO, ConnectionPool
-│ ├── exceptions/ # Custom checked exceptions
-│ ├── util/ # CsvLoader
-│ └── Main.java
-├── test/java/com/walletlogger/
-│ └── dao/ # JUnit 5 tests
-└── resources/
-└── sample_transactions.csv
+| Package      | Contents                                                                                                        |
+| ------------ | --------------------------------------------------------------------------------------------------------------- |
+| `model`      | Transaction, DebitTransaction, CreditTransaction, RefundTransaction, AnomalyAlert, UserProfile, TransactionType |
+| `dao`        | GenericDAO, TransactionDAO, AnomalyDAO, DatabaseConnectionPool, SchemaInitialiser                               |
+| `exceptions` | TransactionPersistenceException, InvalidTransactionException, AnomalyConfigException                            |
+| `util`       | CsvLoader                                                                                                       |
+| `test/dao`   | TransactionDAOTest, AnomalyDAOTest                                                                              |
+| `resources`  | sample_transactions.csv                                                                                         |
 
 ## How to Run
 
