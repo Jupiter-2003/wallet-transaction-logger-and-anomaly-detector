@@ -1,0 +1,14 @@
+# Maven build output — never commit compiled classes
+target/
+
+# The SQLite database file — this is generated at runtime
+wallet.db
+
+# VS Code workspace settings
+.vscode/
+
+# Mac junk
+.DS_Store
+
+# Java crash logs
+hs_err_pid*
