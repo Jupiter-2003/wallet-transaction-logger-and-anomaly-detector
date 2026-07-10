@@ -23,6 +23,13 @@
             <version>3.45.1.0</version>
         </dependency>
 
+        <!-- FlatLaf — modern flat Look and Feel for the Swing GUI -->
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.4</version>
+        </dependency>
+
         <!-- JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -50,6 +57,19 @@
                             <mainClass>com.walletlogger.Main</mainClass>
                         </manifest>
                     </archive>
+                </configuration>
+            </plugin>
+            <!-- Lets you run classes directly with `mvn compile exec:java`.
+                 Defaults to the Week 1 CLI smoke test; override the target class with:
+                 mvn compile exec:java "-Dexec.mainClass=com.walletlogger.gui.WalletLoggerApp"
+                 (quote the WHOLE -D argument on PowerShell, not just the value, or it
+                 can get mis-split at the '='). -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <mainClass>com.walletlogger.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>

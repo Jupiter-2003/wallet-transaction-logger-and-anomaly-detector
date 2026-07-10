@@ -95,4 +95,18 @@ public class DatabaseConnectionPool {
         }
         pool.clear();
     }
+
+    /**
+     * Shuts down the current singleton instance and clears it, so the next
+     * call to {@link #getInstance()} builds a brand new pool of connections.
+     * Used by the GUI's "Reset All Data" action after the underlying database
+     * file has been deleted — without this, DAOs would keep talking to
+     * connections opened against a file that no longer exists.
+     */
+    public static synchronized void shutdownAndReset() {
+        if (instance != null) {
+            instance.shutdown();
+            instance = null;
+        }
+    }
 }

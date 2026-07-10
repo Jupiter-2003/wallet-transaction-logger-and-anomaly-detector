@@ -4,6 +4,9 @@ target/
 # The SQLite database file — this is generated at runtime
 wallet.db
 
+# Serialized UserProfile store (anomaly engine state) — generated at runtime
+data/
+
 # VS Code workspace settings
 .vscode/
 

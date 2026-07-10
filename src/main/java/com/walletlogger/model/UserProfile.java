@@ -2,6 +2,8 @@ package com.walletlogger.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * Holds per-user statistics maintained by the anomaly detector.
@@ -15,6 +17,9 @@ import java.time.LocalDateTime;
 public class UserProfile implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    /** Only the most recent N timestamps are kept, bounding memory use per user. */
+    private static final int VELOCITY_WINDOW_CAPACITY = 25;
 
     private final String userId;
 
@@ -30,6 +35,9 @@ public class UserProfile implements Serializable {
     private String lastVendorId;
     private double lastAmount;
 
+    // For HIGH_VELOCITY rule — a bounded rolling window of recent transaction times
+    private final Deque<LocalDateTime> recentTimestamps;
+
     public UserProfile(String userId) {
         this.userId  = userId;
         this.count   = 0;
@@ -38,6 +46,7 @@ public class UserProfile implements Serializable {
         this.lastTransactionTime = null;
         this.lastVendorId = null;
         this.lastAmount   = -1;
+        this.recentTimestamps = new ArrayDeque<>(VELOCITY_WINDOW_CAPACITY);
     }
 
     /**
@@ -54,6 +63,23 @@ public class UserProfile implements Serializable {
         this.lastAmount          = amount;
         this.lastVendorId        = vendorId;
         this.lastTransactionTime = timestamp;
+
+        recentTimestamps.addLast(timestamp);
+        if (recentTimestamps.size() > VELOCITY_WINDOW_CAPACITY) {
+            recentTimestamps.removeFirst();
+        }
+    }
+
+    /**
+     * Counts how many of the recently recorded timestamps fall within
+     * {@code windowSeconds} seconds before {@code reference} (inclusive).
+     * Used by HighVelocityRule to spot bursts of activity.
+     */
+    public long countRecentWithinSeconds(long windowSeconds, LocalDateTime reference) {
+        LocalDateTime cutoff = reference.minusSeconds(windowSeconds);
+        return recentTimestamps.stream()
+                .filter(ts -> !ts.isBefore(cutoff) && !ts.isAfter(reference))
+                .count();
     }
 
     /**
