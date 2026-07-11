@@ -45,6 +45,7 @@ Antariksha Deb (2023A7PS0004H) | Deep Mitra (2023B5AA0670H)
    Quote the **whole** `-Dexec.mainClass=...` argument (not just the class name) if you're
    on PowerShell — quoting only the value can get the argument mis-split at the `=`.
 5. Run `mvn test` for all unit and integration tests
+6. To run the gui we can also just use the command 'mvn exec:java' (PREFFERED)
 
 ### Resetting / erasing stored data
 
@@ -73,10 +74,6 @@ Two ways to start with a clean slate:
 - Closing the window gracefully stops the engine and serializes all `UserProfile` state to
   `data/user_profiles.ser`, so running averages/velocity history survive a restart.
 
-The GUI uses [FlatLaf](https://www.formdev.com/flatlaf/) for a modern flat theme, plus a
-custom indigo dashboard header with live stat cards (transactions processed, alerts raised,
-flagged rate, active users), striped/badge-styled tables, and a proper modal form for
-simulating transactions.
 
 ## Anomaly Detection Engine (Week 2)
 
