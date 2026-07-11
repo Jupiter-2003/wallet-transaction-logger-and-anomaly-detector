@@ -54,7 +54,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.walletlogger.Main</mainClass>
+                            <mainClass>com.walletlogger.gui.WalletLoggerApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -69,7 +69,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
-                    <mainClass>com.walletlogger.Main</mainClass>
+                    <mainClass>com.walletlogger.gui.WalletLoggerApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>
