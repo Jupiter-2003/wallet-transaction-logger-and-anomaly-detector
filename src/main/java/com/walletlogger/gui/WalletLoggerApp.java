@@ -6,9 +6,7 @@ import javax.swing.UIManager;
 import com.formdev.flatlaf.FlatLightLaf;
 
 /**
- * Week 3 entry point — launches the Swing desktop application.
- * (The Week 1 CLI smoke test in {@code com.walletlogger.Main} is unchanged
- * and still available for a quick non-GUI sanity check of the DAO layer.)
+ * launches the Swing desktop application.
  */
 public class WalletLoggerApp {
 

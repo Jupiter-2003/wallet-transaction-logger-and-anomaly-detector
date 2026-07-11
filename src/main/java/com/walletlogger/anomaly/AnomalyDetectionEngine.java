@@ -19,7 +19,7 @@ import com.walletlogger.model.Transaction;
 import com.walletlogger.model.UserProfile;
 
 /**
- * The heart of Week 2: a single-threaded consumer that drains a
+ * a single-threaded consumer that drains a
  * {@link BlockingQueue} of incoming transactions, runs every registered
  * {@link AnomalyRule} against each one, persists both the transaction and
  * any resulting {@link AnomalyAlert}s, and keeps each user's
